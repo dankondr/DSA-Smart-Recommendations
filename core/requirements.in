@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+aiopg
+peewee
+peewee-async
+peewee-migrations
+funcy
+certifi
+typer
+ujson

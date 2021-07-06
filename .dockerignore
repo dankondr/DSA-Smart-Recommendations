@@ -1,0 +1,6 @@
+.gitignore
+.git
+.idea
+.env
+.mypy_cache
+.pytest_cache

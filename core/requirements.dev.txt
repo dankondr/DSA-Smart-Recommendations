@@ -1,0 +1,12 @@
+-r requirements.txt
+pip-tools
+pre-commit
+flake8
+pytest
+pytest-asyncio
+black
+mypy
+isort
+factory-boy
+freezegun
+requests

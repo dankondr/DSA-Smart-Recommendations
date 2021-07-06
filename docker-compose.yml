@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  dsa_smart:
+    build:
+      context: .
+    tty: true
+    env_file:
+      - .env
+    environment:
+      POSTGRES_HOST: dsa_smart_db
+    ports:
+      -  "${APP_PORT:-3000}:3000"
+    links:
+      - dsa_smart_db
+    depends_on:
+      - dsa_smart_db
+    volumes:
+      - .:/opt:cached
+      - .bash_history:/root/.bash_history:cached
+
+  dsa_smart_db:
+    image: postgres:13.3
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - dsa_smart_db_data:/var/lib/postgresql/data:cached
+      - .:/opt:cached
+
+volumes:
+  dsa_smart_db_data:
+    external: false
