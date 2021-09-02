@@ -10,7 +10,7 @@ from project.schemas.project import Project, ProjectDetail
 
 class MiemAPIClient(AsyncClient):
     async def get_projects(self) -> list[Project]:
-        return [Project(**data) for data in self._get_many('/projects')]
+        return [Project(**data) for data in await self._get_many('/projects')]
 
     async def get_project(self, project_id: int) -> ProjectDetail:
         project_data, vacancies_data = await asyncio.gather(

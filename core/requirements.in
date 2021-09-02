@@ -13,3 +13,4 @@ httpx
 python-jose[cryptography]
 pandas
 surprise
+python-multipart

@@ -87,6 +87,8 @@ python-dotenv==0.18.0
     # via uvicorn
 python-jose[cryptography]==3.3.0
     # via -r core/requirements.in
+python-multipart==0.0.5
+    # via -r core/requirements.in
 pytz==2021.1
     # via pandas
 pyyaml==5.4.1
@@ -104,6 +106,7 @@ six==1.16.0
     #   bcrypt
     #   ecdsa
     #   python-dateutil
+    #   python-multipart
     #   scikit-surprise
 sniffio==1.2.0
     # via
