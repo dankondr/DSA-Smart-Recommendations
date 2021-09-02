@@ -8,3 +8,8 @@ funcy
 certifi
 typer
 ujson
+passlib[bcrypt]
+httpx
+python-jose[cryptography]
+pandas
+surprise

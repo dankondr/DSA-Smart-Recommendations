@@ -2,12 +2,11 @@ from fastapi import FastAPI
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
-from api.endpoints import api_router
-from core.database import connect_database, close_database
+from api.endpoints import endpoints as api_router
+from core.database import close_database, connect_database
 from core.settings import settings
 
 API_NAMESPACE = '/api'
-API_VERSION = 'v1'
 
 MIDDLEWARES = [
     Middleware(
@@ -34,5 +33,6 @@ async def on_startup() -> None:
 @app.on_event('shutdown')
 async def on_shutdown() -> None:
     await close_database()
+
 
 app.include_router(api_router, prefix=API_NAMESPACE)
