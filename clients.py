@@ -23,7 +23,7 @@ class MiemAPIClient(AsyncClient):
         self, path: str, params: dict = None, headers: dict = None, **kwargs: Any
     ) -> dict:
         response = await self.get(path, params=params, headers=headers, **kwargs)
-        body = ujson.loads(response.text['data'])
+        body = ujson.loads(response.text)['data']
         if not isinstance(body, dict):
             raise ValueError(f'API Response for {path} is not json deserializable')
         return body
@@ -32,7 +32,7 @@ class MiemAPIClient(AsyncClient):
         self, path: str, params: dict = None, headers: dict = None, **kwargs: Any
     ) -> list[dict]:
         response = await self.get(path, params=params, headers=headers, **kwargs)
-        body = ujson.loads(response.text['data'])
+        body = ujson.loads(response.text)['data']
         if not isinstance(body, list):
             raise ValueError(f'API Response for {path} is not iterable')
         return body
